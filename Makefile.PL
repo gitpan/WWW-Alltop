@@ -1,8 +1,8 @@
 
 use inc::Module::Install;
 
-name 'WWW-AllTop';
-all_from 'lib/WWW/AllTop.pm';
+name 'WWW-Alltop';
+all_from 'lib/WWW/Alltop.pm';
 
 requires 'Moose';
 requires 'DateTime';

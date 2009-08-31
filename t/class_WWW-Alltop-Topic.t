@@ -6,7 +6,7 @@ use WWW::Mechanize;
 my ( $class, $instance );
 
 BEGIN {
-    $class = 'WWW::AllTop::Topic';
+    $class = 'WWW::Alltop::Topic';
     use_ok( $class );
 }
 

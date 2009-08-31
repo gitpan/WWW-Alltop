@@ -10,10 +10,10 @@ inc/Module/Install/Makefile.pm
 inc/Module/Install/Metadata.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
-lib/WWW/AllTop.pm
-lib/WWW/AllTop/OPML.pm
-lib/WWW/AllTop/Topic.pm
-lib/WWW/AllTop/TopicListing.pm
+lib/WWW/Alltop.pm
+lib/WWW/Alltop/OPML.pm
+lib/WWW/Alltop/Topic.pm
+lib/WWW/Alltop/TopicListing.pm
 LICENSE
 Makefile.PL
 MANIFEST			This list of files
@@ -24,6 +24,6 @@ t/02-pod.t
 t/03-topics.t
 t/04-topic.t
 t/05-topiclisting.t
-t/class_WWW-AllTop-Topic.t
-t/class_WWW-AllTop-TopicListing.t
-t/class_WWW-AllTop.t
+t/class_WWW-Alltop-Topic.t
+t/class_WWW-Alltop-TopicListing.t
+t/class_WWW-Alltop.t

@@ -1,10 +1,10 @@
-package WWW::AllTop::OPML;
+package WWW::Alltop::OPML;
 
 use Moose;
 use DateTime;
 use XML::OPML;
 
-extends qw/WWW::AllTop/;
+extends qw/WWW::Alltop/;
 
 has num_per_topic => ( is => 'rw', isa => 'Int', default => 4 );
 has logger => ( 
@@ -33,7 +33,7 @@ sub generate_opml {
 
     my $opml = XML::OPML->new( version => '1.1' );
     $opml->head(
-        title        => 'AllTop.com Feeds',
+        title        => 'Alltop.com Feeds',
         dateCreated  => DateTime->now,
         dateModified => DateTime->now,
     );
@@ -115,19 +115,19 @@ __PACKAGE__->meta->make_immutable;
 
 =head1 NAME
 
-WWW::AllTop::OPML - Create an OPML document that contains WWW::AllTop feeds
+WWW::Alltop::OPML - Create an OPML document that contains WWW::Alltop feeds
 
 =head1 SYNOPSIS
 
-  use WWW::AllTop::OPML;
+  use WWW::Alltop::OPML;
 
-  my $ad = WWW::AllTop::OPML->new;
+  my $ad = WWW::Alltop::OPML->new;
   print $ad->generate_opml;
 
 =head1 DESCRIPTION
 
-A subclass of WWW::AllTop, this generates an OPML document containing data
-from AllTop.com
+A subclass of WWW::Alltop, this generates an OPML document containing data
+from Alltop.com
 
 =head1 ATTRIBUTES
 
@@ -166,6 +166,6 @@ Josh Braegger E<lt>rckclmbr@gmail.comE<gt> for http://notify.me/
 
 =head1 SEE ALSO
 
-WWW::AllTop
+WWW::Alltop
 
 =cut

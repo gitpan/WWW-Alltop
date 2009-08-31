@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use WWW::AllTop::OPML;
+use WWW::Alltop::OPML;
 use File::Basename;
 use Getopt::Long;
 use Pod::Usage;
@@ -34,7 +34,7 @@ my $filename = $ARGV[0];
 Log::Log4perl->easy_init( $debug || $verbose ? $ALL : $INFO );
 my $logger = Log::Log4perl->get_logger;
 
-my $at = WWW::AllTop::OPML->new(
+my $at = WWW::Alltop::OPML->new(
     debug        => $debug,
     num_per_topic => $num_per_topic,
     logger       => $logger,
@@ -57,7 +57,7 @@ write_file( $filename, $at->generate_opml );
 
 =head1 NAME
 
-alltop_opml - Interface to AllTop.com, to generate OPML output
+alltop_opml - Interface to Alltop.com, to generate OPML output
 
 =head1 SYNOPSIS
 
@@ -93,14 +93,14 @@ Gives a lot more output.
 
 =item B<-num-per-topic>
 
-For each topic on AllTop.com, this is the maximum number of feeds returned.
+For each topic on Alltop.com, this is the maximum number of feeds returned.
 This is useful if you only want a few of the feeds.  Defaults to 4.
 
 =back
 
 =head1 DESCRIPTION
 
-This script will attempt to find feeds from the AllTop.com website, and
+This script will attempt to find feeds from the Alltop.com website, and
 generate an opml file based on what it finds.
 
 =cut

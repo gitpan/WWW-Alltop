@@ -1,7 +1,7 @@
-package WWW::AllTop;
+package WWW::Alltop;
 
 use Moose;
-use WWW::AllTop::Topic;
+use WWW::Alltop::Topic;
 use WWW::Mechanize;
 
 has mech => ( 
@@ -30,7 +30,7 @@ sub topics {
 
     return [
         map {
-            WWW::AllTop::Topic->new(
+            WWW::Alltop::Topic->new(
                 mech => $self->mech,
                 name => $_->{name},
                 url  => 'http://' . $_->{value} . '.alltop.com',
@@ -47,15 +47,15 @@ __PACKAGE__->meta->make_immutable;
 
 =head1 NAME
 
-WWW::AllTop - AllTop.com feed scraper
+WWW::Alltop - Alltop.com feed scraper
 
 =head1 SYNOPSIS
 
- use WWW::AllTop;
+ use WWW::Alltop;
 
- my $ad = WWW::AllTop->new;
+ my $ad = WWW::Alltop->new;
 
- # Arrayref of WWW::AllTop::Topic
+ # Arrayref of WWW::Alltop::Topic
  my $topics = $ad->topics;
  foreach my $t (@$topics) {
      ...
@@ -63,7 +63,7 @@ WWW::AllTop - AllTop.com feed scraper
 
 =head1 DESCRIPTION
 
-This module was designed to get a subset of the feeds used on AllTop.com
+This module was designed to get a subset of the feeds used on Alltop.com
 
 =head1 ATTRIBUTES
 
@@ -81,8 +81,8 @@ A WWW::Mechanize instance.  Defaults to a new instance.
 
 =item B<topics>()
 
-Fetches all the topics from AllTop.com, and returns them as an ArrayRef of
-WWW::AllTop::Topic instances.
+Fetches all the topics from Alltop.com, and returns them as an ArrayRef of
+WWW::Alltop::Topic instances.
 
 =back
 

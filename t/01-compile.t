@@ -6,9 +6,9 @@ use Test::More tests => 4;
 BEGIN {
     use_ok( $_ ) 
         foreach qw/
-            WWW::AllTop
-            WWW::AllTop::Topic
-            WWW::AllTop::TopicListing
-            WWW::AllTop::OPML
+            WWW::Alltop
+            WWW::Alltop::Topic
+            WWW::Alltop::TopicListing
+            WWW::Alltop::OPML
         /;
 }

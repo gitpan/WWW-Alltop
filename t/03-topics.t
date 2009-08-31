@@ -4,7 +4,7 @@ use Test::More tests => 3;
 use WWW::Mechanize;
 
 my ( $class, $instance );
-$class = 'WWW::AllTop';
+$class = 'WWW::Alltop';
 eval "use $class";
 
 $instance = $class->new;

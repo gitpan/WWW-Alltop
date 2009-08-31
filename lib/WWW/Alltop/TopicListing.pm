@@ -1,4 +1,4 @@
-package WWW::AllTop::TopicListing;
+package WWW::Alltop::TopicListing;
 
 use Moose;
 use HTML::TokeParser;
@@ -97,17 +97,17 @@ __PACKAGE__->meta->make_immutable;
 
 =head1 NAME
 
-WWW::AllTop::TopicListing - A TopicListing from AllTop.com
+WWW::Alltop::TopicListing - A TopicListing from Alltop.com
 
 =head1 SYNOPSIS
 
-  use WWW::AllTop::TopicListing;
+  use WWW::Alltop::TopicListing;
   use WWW::Mechanize;
   use Log::Log4perl qw/:easy/;
 
   Log::Log4perl->easy_init( $ALL );
 
-  my $tl = WWW::AllTop::TopicListing->new(
+  my $tl = WWW::Alltop::TopicListing->new(
       url  => 'http://www.slashdot.org/',
       name => 'Slashdot',
       mech => WWW::Mechanize->new
@@ -116,7 +116,7 @@ WWW::AllTop::TopicListing - A TopicListing from AllTop.com
 
 =head1 DESCRIPTION
 
-A topic listing representation from AllTop.com, used to handle the listing
+A topic listing representation from Alltop.com, used to handle the listing
 (or feed).
 
 =head1 ATTRIBUTES
@@ -155,7 +155,7 @@ When not found, it will return an empty string.
 
 =head1 SEE ALSO
 
-WWW::AllTop
-WWW::AllTop::Topic
+WWW::Alltop
+WWW::Alltop::Topic
 
 =cut

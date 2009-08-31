@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 use Test::More tests => 4;
-use WWW::AllTop::TopicListing;
+use WWW::Alltop::TopicListing;
 use WWW::Mechanize;
 
 my $mech = WWW::Mechanize->new(
@@ -10,7 +10,7 @@ my $mech = WWW::Mechanize->new(
 my $name = 'Tech Crunch';
 my $url = 'http://www.techcrunch.com';
 
-my $instance = WWW::AllTop::TopicListing->new(
+my $instance = WWW::Alltop::TopicListing->new(
     name => $name,
     url  => $url,
     mech => $mech,
