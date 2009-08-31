@@ -1,0 +1,24 @@
+---
+abstract: ~
+author:
+  - 'Josh Braegger <rckclmbr@gmail.com> for http://notify.me/'
+distribution_type: module
+generated_by: 'Module::Install version 0.77'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: WWW-AllTop
+no_index:
+  directory:
+    - inc
+    - t
+requires:
+  HTML::TokeParser: 0
+  Log::Log4perl: 0
+  Moose: 0
+  WWW::Mechanize: 0
+  XML::OPML: 0
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.01

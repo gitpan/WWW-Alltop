@@ -1,0 +1,106 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use WWW::AllTop::OPML;
+use File::Basename;
+use Getopt::Long;
+use Pod::Usage;
+use Log::Log4perl qw/:easy/;
+
+my $NUM_THREADS   = 2;
+my $OUT_DIR       = 'opml/';
+my $FILENAME      = './opml/file.txt';
+
+my $debug = '';
+my $help = '';
+my $man  = '';
+my $verbose = '';
+my $num_per_topic = 4;
+
+GetOptions(
+    'help|?'          => \$help, 
+    'man'             => \$man, 
+    'verbose'         => \$verbose, 
+    'debug'           => \$debug, 
+    'num_per_topic=i' => \$num_per_topic,
+) or pod2usage(2);
+pod2usage(1) if $help;
+pod2usage(-exitstatus => 0, -verbose => 2) if $man;
+
+my $filename = $ARGV[0];
+
+Log::Log4perl->easy_init( $debug || $verbose ? $ALL : $INFO );
+my $logger = Log::Log4perl->get_logger;
+
+my $at = WWW::AllTop::OPML->new(
+    debug        => $debug,
+    num_per_topic => $num_per_topic,
+    logger       => $logger,
+);
+
+sub write_file {
+    my ($f, $data) = @_;
+    my $dirname = dirname( $f );
+    mkdir( $dirname ) or die "couldn't create directory: $!" 
+        if ! -d $dirname;
+    open( my $fh, '>', $f ) or die "Couldn't open file: $!\n";
+    binmode $fh;
+    print $fh $data;
+    close $fh or die "Couldn't close file: $!";
+    $logger->info("Saved file '$f' successfully");
+    return;
+}
+
+write_file( $filename, $at->generate_opml );
+
+=head1 NAME
+
+alltop_opml - Interface to AllTop.com, to generate OPML output
+
+=head1 SYNOPSIS
+
+alltop_opml [options] [file]
+
+Options:
+  -help           This help message
+  -man            Full documentation
+  -debug          Enables debug mode
+  -verbose        Products verbose output
+  -num-per-topic  Only gets the specified number of feeds per topic
+
+=head1 OPTIONS
+
+=over
+
+=item B<-help>
+
+Prints a help message, then exits
+
+=item B<-man>
+
+Prints the man page
+
+=item B<-debug>
+
+Enables debug mode.  This gives a more verbose output, and only requests 3 
+different feeds, so the time to generate the output is a lot less slow.
+
+=item B<-verbose>
+
+Gives a lot more output.
+
+=item B<-num-per-topic>
+
+For each topic on AllTop.com, this is the maximum number of feeds returned.
+This is useful if you only want a few of the feeds.  Defaults to 4.
+
+=back
+
+=head1 DESCRIPTION
+
+This script will attempt to find feeds from the AllTop.com website, and
+generate an opml file based on what it finds.
+
+=cut
